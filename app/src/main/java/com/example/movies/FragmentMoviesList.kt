@@ -1,0 +1,29 @@
+package com.example.movies
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+
+class FragmentMoviesList : Fragment() {
+
+    private var listener: FragmentMoviesList.TransactionsFragmentClicks? = null
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_movies_list, container, false)
+    }
+
+
+    fun setClickListener(l: TransactionsFragmentClicks?) {
+        listener = l
+    }
+
+    interface TransactionsFragmentClicks {
+        fun goBack()
+    }
+}
