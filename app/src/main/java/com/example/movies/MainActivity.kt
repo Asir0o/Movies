@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity(), FragmentMoviesDetails.TransactionsFrag
 
        if(savedInstanceState == null) {
            supportFragmentManager.beginTransaction()
-               .add(R.id.main_container, moviesDetailsFragment)
+               .add(R.id.main_container, moviesListFragment)
                .commit()
        }
     }
@@ -25,7 +25,14 @@ class MainActivity : AppCompatActivity(), FragmentMoviesDetails.TransactionsFrag
     override fun goBack() {
         supportFragmentManager.beginTransaction()
             .addToBackStack(null)
-            .replace(R.id.main_container, FragmentMoviesList())
+            .replace(R.id.main_container, moviesListFragment)
+            .commit()
+    }
+
+    override fun open() {
+        supportFragmentManager.beginTransaction()
+            .addToBackStack(null)
+            .replace(R.id.main_container, moviesDetailsFragment)
             .commit()
     }
 }
